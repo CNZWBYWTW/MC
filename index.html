@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="/css/all.css">
     <link rel="stylesheet" href="/css/index-nb.css">
     <script src="/js/all.js"></script>
+    <script src="/js/live2d-widget/autoload.js"></script>
 </head>
 <!--URL-->
 <script>
@@ -19,6 +20,12 @@
         var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),
             results = regex.exec(location.search);
         return results === null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
+    }
+</script>
+<!--start server-->
+<script>
+    function run_server(api_url) {
+        fetch(api_url);
     }
 </script>
 <!--background-->
@@ -132,9 +139,10 @@
         <div class="mcs server-info">服务器地址: server-1.mc.cnzw.us.kg</div>
         <div class="mcs server-info">服务器端口: 43533</div>
         <br>
-        <div class="mcs note">为减小服务器负载, 当服务器中无玩家一段时间后, 将自动停止运行, 如需启动, 请点击下方"START RUN SERVER"按钮</div>
         <br>
-        <div class="mcsstartbutton">START RUN SERVER</div>
+        <br>
+        <div class="mcs note">为减小服务器负载, 当服务器中无玩家一段时间后, 将自动停止运行, 如需启动, 请登录<a class="mcsstartbutton" href="https://aternos.org/go/" target="_blank">aternos.org</a>后进行启动,<br>用户名: CNZW_PLAYER,<br>密码: CNZW_PLAYER</div>
+        <br>
         <br>
         <style>
             .body {
@@ -146,11 +154,13 @@
                 border-radius: 5px;
                 border: 3px solid rgb(0, 255, 0);
             }
-            .mcs{
+
+            .mcs {
                 color: white;
                 font-size: 3vw;
             }
-            .mcsstartbutton{
+
+            div.mcsstartbutton {
                 border: 3px #00ff00 solid;
                 border-radius: 2em;
                 width: 70%;
@@ -159,6 +169,10 @@
                 display: block;
                 margin-left: auto;
                 margin-right: auto;
+            }
+            a.mcsstartbutton{
+                text-decoration: none;
+                color: white;
             }
         </style>
     </div>
